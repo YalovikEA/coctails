@@ -1,0 +1,102 @@
+module.exports = {
+    env: {
+        browser: true,
+        es2021: true,
+        node: true,
+    },
+    extends: [
+        'eslint:recommended',
+        'plugin:vue/vue3-recommended',
+        'airbnb-base',
+    ],
+    parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+    },
+    plugins: [
+        'vue',
+    ],
+    rules: {
+        indent: ['error', 4],
+        'max-len': ['error', { code: 120 }],
+        'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+        'no-param-reassign': ['error', { props: false }],
+        'vue/order-in-components': ['error', {
+            order: [
+                'el',
+                'name',
+                'key',
+                'parent',
+                'functional',
+                ['delimiters', 'comments'],
+                ['components', 'directives', 'filters'],
+                'extends',
+                'mixins',
+                ['provide', 'inject'],
+                'ROUTER_GUARDS',
+                'layout',
+                'middleware',
+                'validate',
+                'scrollToTop',
+                'transition',
+                'loading',
+                'inheritAttrs',
+                'model',
+                ['props', 'propsData'],
+                'emits',
+                'setup',
+                'asyncData',
+                'data',
+                'fetch',
+                'head',
+                'computed',
+                'watch',
+                'watchQuery',
+                'LIFECYCLE_HOOKS',
+                'methods',
+                ['template', 'render'],
+                'renderError',
+            ],
+        }],
+        'vue/attributes-order': ['error', {
+            order: [
+                'DEFINITION',
+                'LIST_RENDERING',
+                'CONDITIONALS',
+                'RENDER_MODIFIERS',
+                'GLOBAL',
+                ['UNIQUE', 'SLOT'],
+                'TWO_WAY_BINDING',
+                'OTHER_DIRECTIVES',
+                'OTHER_ATTR',
+                'EVENTS',
+                'CONTENT',
+            ],
+            alphabetical: false,
+        }],
+        'vue/component-tags-order': [
+            'error',
+            {
+                order: ['template', 'script', 'style'],
+            },
+        ],
+        'vue/html-indent': [
+            'error',
+            4,
+            {
+                alignAttributesVertically: true,
+                ignores: [],
+            },
+        ],
+        'vue/padding-line-between-blocks': ['error', 'always'],
+    },
+    settings: {
+        'import/resolver': {
+            alias: {
+                map: [
+                    ['@', './src'],
+                ],
+            },
+        },
+    },
+};
